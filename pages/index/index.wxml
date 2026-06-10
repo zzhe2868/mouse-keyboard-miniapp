@@ -1,0 +1,73 @@
+<!-- pages/index/index.wxml — 商品列表首页 -->
+<view class="container">
+  <!-- 顶部搜索/分类栏 -->
+  <view class="header">
+    <view class="header-title">电竞外设</view>
+    <view class="header-subtitle">热门鼠标 · 键盘参数大全</view>
+    <view class="search-bar">
+      <text class="search-icon">🔍</text>
+      <input class="search-input" placeholder="搜索鼠标/键盘…" bindinput="onSearch" value="{{keyword}}" />
+    </view>
+  </view>
+
+  <!-- 分类切换 -->
+  <view class="tabs">
+    <view class="tab {{currentTab === 'all' ? 'active' : ''}}" bindtap="switchTab" data-tab="all">
+      全部
+    </view>
+    <view class="tab {{currentTab === 'mouse' ? 'active' : ''}}" bindtap="switchTab" data-tab="mouse">
+      🖱️ 鼠标
+    </view>
+    <view class="tab {{currentTab === 'keyboard' ? 'active' : ''}}" bindtap="switchTab" data-tab="keyboard">
+      ⌨️ 键盘
+    </view>
+  </view>
+
+  <!-- 结果统计 -->
+  <view class="result-count" wx:if="{{filteredList.length}}">
+    共 <text class="count">{{filteredList.length}}</text> 款产品
+  </view>
+
+  <!-- 商品列表 -->
+  <view class="product-grid">
+    <view class="product-card" wx:for="{{filteredList}}" wx:key="id"
+          bindtap="goDetail" data-id="{{item.id}}">
+      <!-- 图片 -->
+      <view class="card-img-wrap">
+        <image class="card-img" src="{{item.image}}" mode="aspectFit" lazy-load />
+        <view class="card-category-badge {{item.category === 'mouse' ? 'badge-mouse' : 'badge-keyboard'}}">
+          {{item.category === 'mouse' ? '鼠标' : '键盘'}}
+        </view>
+      </view>
+
+      <!-- 信息 -->
+      <view class="card-body">
+        <view class="card-brand">{{item.brand}}</view>
+        <view class="card-name">{{item.name}}</view>
+        <view class="card-tags">
+          <text class="tag" wx:for="{{item.tags}}" wx:for-item="tag" wx:key="*this">{{tag}}</text>
+        </view>
+        <view class="card-footer">
+          <view class="card-price">
+            <text class="price-symbol">¥</text>
+            <text class="price-value">{{item.price}}</text>
+          </view>
+          <view class="card-arrow">查看详情 →</view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 空状态 -->
+  <view class="empty" wx:if="{{filteredList.length === 0}}">
+    <view class="empty-icon">🔍</view>
+    <view class="empty-text">没有找到相关产品</view>
+    <view class="empty-hint">试试其他关键词</view>
+  </view>
+
+  <!-- 底部彩蛋 -->
+  <view class="footer">
+    <view class="footer-line"></view>
+    <view class="footer-text">扫码查看更多外设参数</view>
+  </view>
+</view>

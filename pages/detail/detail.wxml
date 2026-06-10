@@ -1,0 +1,88 @@
+<!-- pages/detail/detail.wxml — 商品详情页 -->
+<view class="container">
+  <!-- 商品图片轮播 -->
+  <view class="hero">
+    <image class="hero-img" src="{{product.image}}" mode="aspectFit" />
+    <view class="hero-overlay">
+      <view class="hero-brand">{{product.brand}}</view>
+      <view class="hero-name">{{product.name}}</view>
+    </view>
+  </view>
+
+  <!-- 价格卡片 -->
+  <view class="price-card">
+    <view class="price-main">
+      <text class="price-symbol">¥</text>
+      <text class="price-value">{{product.price}}</text>
+    </view>
+    <view class="price-tags">
+      <text class="price-tag" wx:for="{{product.tags}}" wx:key="*this">{{item}}</text>
+    </view>
+  </view>
+
+  <!-- 亮点区块 -->
+  <view class="section">
+    <view class="section-title">
+      <view class="title-dot"></view>
+      核心亮点
+    </view>
+    <view class="highlights">
+      <view class="highlight-item" wx:for="{{product.highlights}}" wx:key="*this">
+        <view class="hl-icon">{{item === product.highlights[0] ? '⭐' : item === product.highlights[1] ? '🔥' : item === product.highlights[2] ? '💪' : '✨'}}</view>
+        <text>{{item}}</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 详细参数 -->
+  <view class="section">
+    <view class="section-title">
+      <view class="title-dot dot-blue"></view>
+      详细参数
+    </view>
+    <view class="specs-table">
+      <view class="spec-row" wx:for="{{product.specs}}" wx:key="label">
+        <view class="spec-label">{{item.label}}</view>
+        <view class="spec-value">{{item.value}}</view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 描述 -->
+  <view class="section">
+    <view class="section-title">
+      <view class="title-dot dot-green"></view>
+      产品描述
+    </view>
+    <view class="desc-text">{{product.description}}</view>
+  </view>
+
+  <!-- 底部操作栏 -->
+  <view class="bottom-bar">
+    <view class="back-btn" bindtap="goBack">
+      ← 返回列表
+    </view>
+    <button class="share-btn" open-type="share">
+      分享给朋友
+    </button>
+  </view>
+
+  <!-- 推荐同类产品 -->
+  <view class="section">
+    <view class="section-title">
+      <view class="title-dot dot-orange"></view>
+      同类推荐
+    </view>
+    <scroll-view class="related-scroll" scroll-x="true">
+      <view class="related-item" wx:for="{{relatedProducts}}" wx:key="id"
+            bindtap="goDetail" data-id="{{item.id}}">
+        <image class="related-img" src="{{item.image}}" mode="aspectFit" />
+        <view class="related-name">{{item.brand}}</view>
+        <view class="related-price">¥{{item.price}}</view>
+      </view>
+    </scroll-view>
+  </view>
+
+  <!-- 占位底部 -->
+  <view style="height: 140rpx;"></view>
+</view>

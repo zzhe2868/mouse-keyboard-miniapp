@@ -1,0 +1,215 @@
+/* pages/index/index.wxss — 商品列表首页样式 */
+.container {
+  padding: 0 20rpx;
+  padding-bottom: 60rpx;
+}
+
+/* ── 顶部 ── */
+.header {
+  padding: 30rpx 16rpx 10rpx;
+}
+.header-title {
+  font-size: 48rpx;
+  font-weight: 800;
+  color: #1a1a2e;
+  letter-spacing: 2rpx;
+}
+.header-subtitle {
+  font-size: 24rpx;
+  color: #999;
+  margin-top: 6rpx;
+  margin-bottom: 20rpx;
+}
+
+/* 搜索栏 */
+.search-bar {
+  display: flex;
+  align-items: center;
+  background: #fff;
+  border-radius: 40rpx;
+  padding: 12rpx 24rpx;
+  box-shadow: 0 2rpx 16rpx rgba(0,0,0,0.06);
+}
+.search-icon {
+  font-size: 36rpx;
+  margin-right: 14rpx;
+  opacity: 0.6;
+}
+.search-input {
+  flex: 1;
+  font-size: 28rpx;
+  color: #333;
+}
+
+/* ── 分类 Tab ── */
+.tabs {
+  display: flex;
+  margin: 20rpx 16rpx 10rpx;
+  gap: 16rpx;
+}
+.tab {
+  flex: 1;
+  text-align: center;
+  padding: 18rpx 0;
+  font-size: 28rpx;
+  font-weight: 600;
+  color: #888;
+  background: #fff;
+  border-radius: 32rpx;
+  box-shadow: 0 2rpx 8rpx rgba(0,0,0,0.04);
+  transition: all 0.2s;
+}
+.tab.active {
+  color: #fff;
+  background: linear-gradient(135deg, #ff6b35, #f7931e);
+  box-shadow: 0 6rpx 20rpx rgba(255,107,53,0.3);
+}
+
+/* ── 结果计数 ── */
+.result-count {
+  font-size: 24rpx;
+  color: #aaa;
+  padding: 10rpx 16rpx;
+}
+.result-count .count {
+  color: #ff6b35;
+  font-weight: 700;
+}
+
+/* ── 商品网格 ── */
+.product-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 0 6rpx;
+}
+
+.product-card {
+  width: 49%;
+  background: #fff;
+  border-radius: 20rpx;
+  overflow: hidden;
+  margin-bottom: 16rpx;
+  box-shadow: 0 2rpx 12rpx rgba(0,0,0,0.06);
+  transition: transform 0.15s;
+}
+.product-card:active {
+  transform: scale(0.97);
+}
+
+/* 图片区 */
+.card-img-wrap {
+  position: relative;
+  width: 100%;
+  height: 280rpx;
+  background: #fafafa;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.card-img {
+  width: 80%;
+  height: 80%;
+}
+.card-category-badge {
+  position: absolute;
+  top: 12rpx;
+  left: 12rpx;
+  font-size: 20rpx;
+  padding: 4rpx 14rpx;
+  border-radius: 16rpx;
+  color: #fff;
+}
+.badge-mouse { background: #4a90d9; }
+.badge-keyboard { background: #7b61ff; }
+
+/* 信息区 */
+.card-body {
+  padding: 16rpx 18rpx 20rpx;
+}
+.card-brand {
+  font-size: 20rpx;
+  color: #aaa;
+  margin-bottom: 4rpx;
+}
+.card-name {
+  font-size: 28rpx;
+  font-weight: 700;
+  color: #1a1a2e;
+  line-height: 1.3;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+.card-tags {
+  margin-top: 10rpx;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8rpx;
+}
+.tag {
+  font-size: 18rpx;
+  color: #ff6b35;
+  background: #fff5f0;
+  padding: 4rpx 12rpx;
+  border-radius: 12rpx;
+}
+
+.card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 16rpx;
+}
+.card-price {
+  color: #e0483b;
+}
+.price-symbol {
+  font-size: 22rpx;
+  font-weight: 600;
+}
+.price-value {
+  font-size: 34rpx;
+  font-weight: 800;
+}
+.card-arrow {
+  font-size: 22rpx;
+  color: #bbb;
+}
+
+/* ── 空状态 ── */
+.empty {
+  text-align: center;
+  padding: 120rpx 0;
+}
+.empty-icon {
+  font-size: 80rpx;
+  margin-bottom: 20rpx;
+}
+.empty-text {
+  font-size: 28rpx;
+  color: #999;
+}
+.empty-hint {
+  font-size: 24rpx;
+  color: #ccc;
+  margin-top: 10rpx;
+}
+
+/* ── 底部 ── */
+.footer {
+  text-align: center;
+  padding: 40rpx 0 20rpx;
+}
+.footer-line {
+  width: 120rpx;
+  height: 2rpx;
+  background: #ddd;
+  margin: 0 auto 20rpx;
+}
+.footer-text {
+  font-size: 22rpx;
+  color: #ccc;
+}
